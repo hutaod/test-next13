@@ -5,7 +5,7 @@ const postsDetailHandler: NextApiHandler = async (req, res) => {
     id: req.query.id,
     name: `文章${req.query.id}`,
     content: `
-      <p>this is a content with id is${req.query.id}</p>
+      <p>this is a content with id: ${req.query.id}</p>
     `
   })
 }
