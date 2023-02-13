@@ -10,7 +10,7 @@ const revalidateHandler: NextApiHandler = async (req, res) => {
   }
 
   try {
-    // 更新 demo2
+    // 更新 demo3
     await res.revalidate(`/isr/demo3/${id}`)
     // 返回说明更新指令已发出，并不能说明一定更新成功
     return res.json({ revalidated: true })
