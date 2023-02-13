@@ -1,4 +1,3 @@
-import { GetStaticPropsContext } from 'next'
 import React from 'react'
 
 type Props = {
@@ -22,8 +21,7 @@ export async function getStaticProps() {
   return {
     props: {
       times,
-    },
-    revalidate: 10, // In seconds
+    }
   }
 }
 

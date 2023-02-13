@@ -4,7 +4,7 @@ const MY_SECRET_TOKEN = "MY_SECRET_TOKEN";
 
 const revalidateHandler: NextApiHandler = async (req, res) => {
   // 指令密钥校验
-  if (req.query.secret !== "MY_SECRET_TOKEN") {
+  if (req.query.secret !== MY_SECRET_TOKEN) {
     return res.status(401).json({ message: 'Invalid token' })
   }
 
