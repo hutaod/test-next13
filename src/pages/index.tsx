@@ -29,6 +29,9 @@ export default function Home() {
           <li>
             <Link href="/ip/demo1">getInitialProps</Link>
           </li>
+          <li>
+            <Link href="/hooks/use-scroll-top">test useScrollTop</Link>
+          </li>
         </ul>
       </main>
     </>
