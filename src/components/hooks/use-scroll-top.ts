@@ -32,14 +32,14 @@ export function useScrollTop({
   // container?: HTMLElement;
 } = {}) {
   const [scrollTop, setScrollTop] = useState(0);
-  const [end, setEnd] = useState(true);
+  const [scrolling, setScrolling] = useState(false);
   useEffect(() => {
     let scrolling = false;
     let scrollTop = 0;
     const scrollEndTimer = 0;
 
     function handleChangeScrollTop(newScrollTop: number): void {
-      setEnd(!scrolling)
+      setScrolling(scrolling)
       scrollTop = newScrollTop;
       setScrollTop(newScrollTop);
     }
@@ -92,6 +92,6 @@ export function useScrollTop({
       window.removeEventListener("scroll", scrollFn);
       scrollEndTimer && clearTimeout(scrollEndTimer);
     };
-  }, [minCriticalvalue, maxCriticalvalue, scrollThreshold, scrollFinshedThreshold]);
-  return { scrollTop, end };
+  }, []);
+  return { scrollTop, scrolling };
 }
