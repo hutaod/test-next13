@@ -1,30 +1,37 @@
-import { GetStaticPropsContext } from 'next'
-import React from 'react'
+import { GetStaticPropsContext } from "next";
+import React from "react";
 
 type Props = {
-  id: string,
-  name: string,
-  content: string
-}
+  id: string;
+  name: string;
+  content: string;
+};
 
 const Demo3 = ({ name, content }: Props) => {
   return (
     <div>
-      <h2>{name}</h2>
+      <h2>ISR Demo3 - 动态路由和指令刷新</h2>
+      <h3>{name}</h3>
       <div dangerouslySetInnerHTML={{ __html: content }}></div>
     </div>
-  )
-}
+  );
+};
 
 export async function getStaticProps(ctx: GetStaticPropsContext) {
   // 获取详情
-  const res = await fetch(`${process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://test-next13-alpha.vercel.app"}/api/posts/detail?id=${ctx.params?.id}`);
-  const detail = await res.json()
+  const res = await fetch(
+    `${
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:3000"
+        : "https://test-next13-alpha.vercel.app"
+    }/api/posts/detail?id=${ctx.params?.id}`
+  );
+  const detail = await res.json();
   return {
     props: {
-      ...detail
-    }
-  }
+      ...detail,
+    },
+  };
 }
 
 export async function getStaticPaths() {
@@ -37,7 +44,7 @@ export async function getStaticPaths() {
   //   params: { id: post.id },
   // }))
 
-  return { paths: [], fallback: 'blocking' }
+  return { paths: [], fallback: "blocking" };
 }
 
-export default Demo3
+export default Demo3;

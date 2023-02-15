@@ -4,11 +4,11 @@ type Props = {
   times: number;
 };
 
-const Demo2 = ({ times }: Props) => {
+const Demo1 = ({ times }: Props) => {
   return (
     <div>
-      <h2>ISR Demo2 - 指令刷新</h2>
-      <div>刷新次数：{times}</div>
+      <h2>SP Demo1 - 纯静态，不能刷新</h2>
+      <div>启动后访问次数：{times}</div>
     </div>
   );
 };
@@ -17,13 +17,11 @@ let times = 0;
 
 export async function getStaticProps() {
   times += 1;
-  console.log(`demo2:`, times);
   return {
     props: {
-      mark: "demo2",
       times,
     },
   };
 }
 
-export default Demo2;
+export default Demo1;
