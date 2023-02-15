@@ -2,9 +2,9 @@
   min-height: 100vh;
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -105,4 +105,18 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+ul {
+  padding: 8px 0;
+}
+
+li {
+  line-height: 1.6;
+  color: #666;
+  font-size: 14px;
+}
+
+li > a:hover {
+  color: #222;
 }
