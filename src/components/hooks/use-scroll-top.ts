@@ -46,8 +46,11 @@ export function useScrollTop({
 
     const scrollEnd = debounce(
       (newScrollTop) => {
-        scrolling = false;
-        handleChangeScrollTop(newScrollTop);
+        // 未结束才触发，不然又可能划出界限直接结束，导致上一次的 scrollEnd 还没结束。
+        if (scrolling) {
+          scrolling = false;
+          handleChangeScrollTop(newScrollTop);
+        }
       },
       scrollFinshedThreshold,
       { leading: false, trailing: true }
@@ -58,7 +61,7 @@ export function useScrollTop({
       if (scrolling) {
         handleChangeScrollTop(scrollTop);
       }
-    }, scrollThreshold, { leading: false, trailing: true }) : handleChangeScrollTop;
+    }, scrollThreshold, { leading: true, trailing: false }) : handleChangeScrollTop;
 
     function scrollFn(): void {
       // 设置为滚动中状态
