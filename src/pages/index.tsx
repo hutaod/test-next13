@@ -33,15 +33,23 @@ export default function Home() {
             <Link href="/hooks/use-scroll-top-step1">
               test useScrollTop step1
             </Link>
+          </li>
+          <li>
             <Link href="/hooks/use-scroll-top-step2">
               test useScrollTop step2
             </Link>
+          </li>
+          <li>
             <Link href="/hooks/use-scroll-top-step3">
               test useScrollTop step3
             </Link>
+          </li>
+          <li>
             <Link href="/hooks/use-scroll-top-step4">
               test useScrollTop step4
             </Link>
+          </li>
+          <li>
             <Link href="/hooks/use-scroll-top">test useScrollTop step4 2</Link>
           </li>
         </ul>
