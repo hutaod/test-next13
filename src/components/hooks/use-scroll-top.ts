@@ -2,12 +2,7 @@ import { useEffect, useState } from "react";
 import debounce from "lodash/debounce";
 import throttle from "lodash/throttle";
 
-export function useScrollTop({
-  minCriticalvalue = 0,
-  maxCriticalvalue = 100000,
-  scrollThreshold = 20,
-  scrollFinshedThreshold = 500,
-}: {
+type Options = {
   /**
    * 监听滚动区域最小 scrollTop 值，单位px，默认 0，也就是scrollTop >=0 就触发重新渲染
    */
@@ -30,7 +25,14 @@ export function useScrollTop({
   only?: number;
   // TODO: get container scrollTop
   // container?: HTMLElement;
-} = {}) {
+}
+
+export function useScrollTop({
+  minCriticalvalue = 0,
+  maxCriticalvalue = 100000,
+  scrollThreshold = 20,
+  scrollFinshedThreshold = 500,
+}: Options = {}) {
   const [scrollTop, setScrollTop] = useState(0);
   const [scrolling, setScrolling] = useState(false);
   useEffect(() => {
