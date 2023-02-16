@@ -6,20 +6,29 @@ type Options = {
    * 滚动防抖时间设置，默认 10ms
    */
   scrollThreshold?: number;
-}
+};
 
 export function useScrollTop({ scrollThreshold = 10 }: Options = {}) {
   const [scrollTop, setScrollTop] = useState(0);
   useEffect(() => {
     // scrollThreshold 大于 0 才有使用 throttle 的必要
-    const handleScroll = scrollThreshold > 0 ? throttle((newScrollTop: number) => {
-      setScrollTop(newScrollTop);
-    }, scrollThreshold, { leading: true, trailing: false }) : setScrollTop;
+    const handleScroll =
+      scrollThreshold > 0
+        ? throttle(
+            (newScrollTop: number) => {
+              setScrollTop(newScrollTop);
+            },
+            scrollThreshold,
+            { leading: true, trailing: false }
+          )
+        : setScrollTop;
 
     function scrollFn(): void {
       // 获取 scrollTop
       const newScrollTop =
-        document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        document.documentElement.scrollTop ||
+        window.pageYOffset ||
+        document.body.scrollTop;
       // 更新 state
       handleScroll(newScrollTop);
     }

@@ -25,7 +25,7 @@ type Options = {
   only?: number;
   // TODO: get container scrollTop
   // container?: HTMLElement;
-}
+};
 
 export function useScrollTop({
   minCriticalvalue = 0,
@@ -41,7 +41,7 @@ export function useScrollTop({
     const scrollEndTimer = 0;
 
     function handleChangeScrollTop(newScrollTop: number): void {
-      setScrolling(scrolling)
+      setScrolling(scrolling);
       scrollTop = newScrollTop;
       setScrollTop(newScrollTop);
     }
@@ -58,12 +58,19 @@ export function useScrollTop({
       { leading: false, trailing: true }
     );
 
-    const handleScroll = scrollThreshold > 0 ? throttle((scrollTop: number) => {
-      // 滚动中才触发，预防和结束时间冲突
-      if (scrolling) {
-        handleChangeScrollTop(scrollTop);
-      }
-    }, scrollThreshold, { leading: true, trailing: false }) : handleChangeScrollTop;
+    const handleScroll =
+      scrollThreshold > 0
+        ? throttle(
+            (scrollTop: number) => {
+              // 滚动中才触发，预防和结束时间冲突
+              if (scrolling) {
+                handleChangeScrollTop(scrollTop);
+              }
+            },
+            scrollThreshold,
+            { leading: true, trailing: false }
+          )
+        : handleChangeScrollTop;
 
     function scrollFn(): void {
       // 设置为滚动中状态
@@ -72,7 +79,9 @@ export function useScrollTop({
       }
 
       const newScrollTop =
-        document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        document.documentElement.scrollTop ||
+        window.pageYOffset ||
+        document.body.scrollTop;
       // 划出界限直接结束
       if (
         (newScrollTop <= minCriticalvalue && scrollTop >= minCriticalvalue) ||
@@ -82,7 +91,7 @@ export function useScrollTop({
         handleChangeScrollTop(newScrollTop);
         return;
       }
-      
+
       // 未出界限则在触发滚动事件
       handleScroll(newScrollTop);
 
