@@ -7,7 +7,7 @@ type Props = {
 const Demo1 = ({ times }: Props) => {
   return (
     <div>
-      <h2>SP Demo1 - 纯静态，不能刷新</h2>
+      <h2>SSG Demo1 - 纯静态，不能刷新</h2>
       <div>启动后访问次数：{times}</div>
     </div>
   );
