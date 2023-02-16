@@ -21,7 +21,7 @@ export default function Home() {
             <Link href="/isr/demo2">ISR 指令更新</Link>
           </li>
           <li>
-            <Link href="/isr/demo2">ISR 动态路由</Link>
+            <Link href="/isr/demo3/1">ISR 动态路由</Link>
           </li>
           <li>
             <Link href="/ssp/demo1">SSP</Link>
@@ -30,7 +30,19 @@ export default function Home() {
             <Link href="/ip/demo1">getInitialProps</Link>
           </li>
           <li>
-            <Link href="/hooks/use-scroll-top">test useScrollTop</Link>
+            <Link href="/hooks/use-scroll-top-step1">
+              test useScrollTop step1
+            </Link>
+            <Link href="/hooks/use-scroll-top-step2">
+              test useScrollTop step2
+            </Link>
+            <Link href="/hooks/use-scroll-top-step3">
+              test useScrollTop step3
+            </Link>
+            <Link href="/hooks/use-scroll-top-step4">
+              test useScrollTop step4
+            </Link>
+            <Link href="/hooks/use-scroll-top">test useScrollTop step4 2</Link>
           </li>
         </ul>
       </main>
