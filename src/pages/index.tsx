@@ -24,7 +24,10 @@ export default function Home() {
             <Link href="/isr/demo3/1">ISR 动态路由</Link>
           </li>
           <li>
-            <Link href="/ssp/demo1">SSP</Link>
+            <Link href="/ssg/demo1">SSG</Link>
+          </li>
+          <li>
+            <Link href="/ssr/demo1">SSR</Link>
           </li>
           <li>
             <Link href="/ip/demo1">getInitialProps</Link>

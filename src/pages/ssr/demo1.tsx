@@ -7,7 +7,7 @@ type Props = {
 const Demo1 = ({ times }: Props) => {
   return (
     <div>
-      <h2>SSP Demo1</h2>
+      <h2>SSR Demo1</h2>
       <div>启动后访问次数：{times}</div>
     </div>
   );
