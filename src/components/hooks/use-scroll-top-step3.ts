@@ -11,9 +11,12 @@ type Options = {
    * 滚动完成防抖时间设置，默认 500ms
    */
   scrollFinshedThreshold?: number;
-}
+};
 
-export function useScrollTop({ scrollThreshold = 10, scrollFinshedThreshold = 500 }: Options = {}) {
+export function useScrollTop({
+  scrollThreshold = 10,
+  scrollFinshedThreshold = 500,
+}: Options = {}) {
   const [state, setState] = useState({
     scrollTop: 0,
     scrolling: false,
@@ -28,14 +31,21 @@ export function useScrollTop({ scrollThreshold = 10, scrollFinshedThreshold = 50
       setState({
         scrollTop: newScrollTop,
         scrolling,
-      })
+      });
       // 更新内部状态
     }
 
     // scrollThreshold 大于 0 才有使用 throttle 的必要
-    const handleScroll = scrollThreshold > 0 ? throttle((newScrollTop: number) => {
-      handleChangeScrollTop(newScrollTop);
-    }, scrollThreshold, { leading: true, trailing: false }) : handleChangeScrollTop;
+    const handleScroll =
+      scrollThreshold > 0
+        ? throttle(
+            (newScrollTop: number) => {
+              handleChangeScrollTop(newScrollTop);
+            },
+            scrollThreshold,
+            { leading: true, trailing: false }
+          )
+        : handleChangeScrollTop;
 
     // 滚动结束事件
     const scrollEnd = debounce(
@@ -51,12 +61,14 @@ export function useScrollTop({ scrollThreshold = 10, scrollFinshedThreshold = 50
       scrolling = true;
       // 获取 scrollTop
       const newScrollTop =
-        document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        document.documentElement.scrollTop ||
+        window.pageYOffset ||
+        document.body.scrollTop;
       // 更新 state
       handleScroll(newScrollTop);
 
       // 使用被 debounce 的函数来模拟滚动结束
-      scrollEnd(newScrollTop)
+      scrollEnd(newScrollTop);
     }
     // 监听 scroll 事件
     window.addEventListener("scroll", scrollFn);

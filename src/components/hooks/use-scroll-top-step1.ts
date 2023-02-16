@@ -6,7 +6,9 @@ export function useScrollTop() {
     function scrollFn(): void {
       // 获取 scrollTop
       const newScrollTop =
-        document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        document.documentElement.scrollTop ||
+        window.pageYOffset ||
+        document.body.scrollTop;
       // 更新 state
       setScrollTop(newScrollTop);
     }
