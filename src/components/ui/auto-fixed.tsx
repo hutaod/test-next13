@@ -43,7 +43,7 @@ export const AutoFixed = (props: AutoFixedProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   // 设置监听参数控制：top 为吸顶距离，bottom 为吸底距离
   const options = {
-    rootMargin: `-${top || "0px"} 0px 0px ${bottom || "0px"}`,
+    rootMargin: `-${top || "0px"} 0px -${bottom || "0px"} 0px`,
     // 设置root
     root,
   } as IntersectionObserverInit;
