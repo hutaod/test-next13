@@ -33,8 +33,8 @@ const hex2rgb = (hex?: string, opacity = 1): string | undefined => {
 };
 
 function ColorTranslate() {
-  const [color, setColor] = useState();
-  const [rgbColor, setRgbColor] = useState();
+  const [color, setColor] = useState<string | undefined>();
+  const [rgbColor, setRgbColor] = useState<any>();
   return (
     <div>
       <input
