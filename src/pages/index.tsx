@@ -55,6 +55,9 @@ export default function Home() {
           <li>
             <Link href="/hooks/use-scroll-top">test useScrollTop step4 2</Link>
           </li>
+          <li>
+            <Link href="/components/auto-fixed">test AutoFixed</Link>
+          </li>
         </ul>
       </main>
     </>
