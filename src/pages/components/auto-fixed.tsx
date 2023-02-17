@@ -26,7 +26,7 @@ const AutoFixedDemo = () => {
           我是悬浮内容，距离顶部为 20px 吸顶
         </div>
       </AutoFixed>
-      <div style={{ height: "1000px" }}>我是占位 2，高度500px</div>
+      <div style={{ height: "500px" }}>我是占位 2，高度500px</div>
       <AutoFixed
         bottom="20px"
         height="20px"
