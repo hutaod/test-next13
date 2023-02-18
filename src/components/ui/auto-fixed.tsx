@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { useIntersection } from "../../components/hooks/use-intersection";
 
-export type AutoFixedProps = React.ImgHTMLAttributes<HTMLDivElement> & {
+export type AutoFixedProps = React.HtmlHTMLAttributes<HTMLDivElement> & {
   /** 是否一直吸顶或者吸底 */
   alwaysFixed?: boolean;
   /** 吸顶距离 */
