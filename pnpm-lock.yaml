@@ -8,6 +8,7 @@ specifiers:
   '@types/react-dom': 18.0.10
   eslint: 8.34.0
   eslint-config-next: 13.1.6
+  immer: ^9.0.19
   lodash: ^4.17.21
   next: 13.1.6
   react: 18.2.0
@@ -21,6 +22,7 @@ dependencies:
   '@types/react-dom': 18.0.10
   eslint: 8.34.0
   eslint-config-next: 13.1.6_7kw3g6rralp5ps6mg3uyzz6azm
+  immer: 9.0.19
   lodash: 4.17.21
   next: 13.1.6_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
@@ -1245,6 +1247,10 @@ packages:
   /ignore/5.2.4:
     resolution: {integrity: sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==}
     engines: {node: '>= 4'}
+    dev: false
+
+  /immer/9.0.19:
+    resolution: {integrity: sha512-eY+Y0qcsB4TZKwgQzLaE/lqYMlKhv5J9dyd2RhhtGhNo2njPXDqU9XPfcNfa3MIDsdtZt5KlkIsirlo4dHsWdQ==}
     dev: false
 
   /import-fresh/3.3.0:
