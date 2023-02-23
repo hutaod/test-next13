@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 export interface CountDownOptions {
   /** 截止时间，时间戳 */
@@ -106,48 +106,44 @@ function computeRemainTime(deadlineTime: number) {
   return remainTime;
 }
 
+function createCountdown(
+  setTimeInfo: (timeInfo: TimeInfo) => void,
+  options: CountDownOptions
+) {
+  let timer = 0;
+  function countdown() {
+    const remainTime = computeRemainTime(options.deadlineTime);
+    // 剩余时间大于 0 才开始倒计时
+    if (remainTime > 0) {
+      // 未结束时直接定时下一次在执行判断 countdown
+      timer = window.setTimeout(
+        countdown,
+        options.showMillisecond ? 100 : 1000 // 毫秒级则修改定时器时间
+      );
+    }
+    const data = computeCountdownInfo(remainTime, options.showMillisecond);
+    setTimeInfo(data);
+  }
+  const getTimer = () => timer;
+  return { getTimer, countdown };
+}
+
 export const useCountdown = (options: CountDownOptions) => {
-//   // 渲染时获取一次剩余时间
-//   const remainTime = useMemo(
-//     () => computeRemainTime(options.deadlineTime),
-//     [options.deadlineTime]
-//   );
-//   // 首次初始化数据，以防页面闪烁
-//   const [timeInfo, setTimeInfo] = useState<TimeInfo>(
-//     computeCountdownInfo(remainTime)
-//   );
   // 首次初始化数据，显示清除的数据
   const [timeInfo, setTimeInfo] = useState<TimeInfo>(
     clearCountdownInfo(options.showMillisecond)
   );
   useEffect(() => {
-    let timer = 0;
-
-    function countdown(isFirst = false) {
-      const remainTime = computeRemainTime(options.deadlineTime);
-      // 剩余时间大于 0 才开始倒计时
-      if (remainTime > 0) {
-        // 未结束时直接定时下一次在执行判断 countdown
-        timer = window.setTimeout(
-          countdown,
-          options.showMillisecond ? 100 : 1000 // 毫秒级则修改定时器时间
-        );
-      }
-      // 首次则不用再计算，外部组件初始化时执行过一次
-      // if (isFirst && remainTime > 0) {
-      //   return;
-      // }
-      const data = computeCountdownInfo(remainTime, options.showMillisecond);
-      setTimeInfo(data);
-    }
-
-    // 首次传入参数
-    countdown(true);
+    // 获取倒计时
+    const { getTimer, countdown } = createCountdown(setTimeInfo, options);
+    // 开始倒计时
+    countdown();
 
     return () => {
       // 清除定时器
-      timer && clearInterval(timer);
+      getTimer() && clearInterval(getTimer());
     };
+    // eslint-disable-next-line
   }, [options.deadlineTime, options.showMillisecond]);
   return timeInfo;
 };
