@@ -8,9 +8,11 @@ const revalidateHandler: NextApiHandler = async (req, res) => {
     return res.status(401).json({ message: 'Invalid token' })
   }
 
+  const path = req.query.path as string;
+
   try {
     // 更新 demo2
-    await res.revalidate('/isr/demo2')
+    await res.revalidate(path || '/isr/demo2')
     // 返回说明更新指令已发出，并不能说明一定更新成功
     return res.json({ revalidated: true })
   } catch (err) {
