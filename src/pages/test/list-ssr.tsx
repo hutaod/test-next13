@@ -28,6 +28,7 @@ function App({ data, errorMsg }: { data: any, errorMsg: string }) {
 export async function getServerSideProps() {
   let data = [];
   let errorMsg = null;
+  const timeStart = Date.now();
   try {
     data = await fetcher("/topics")
   } catch (err) {
@@ -37,6 +38,7 @@ export async function getServerSideProps() {
     props: {
       data,
       errorMsg,
+      apiTime: Date.now() - timeStart,
     }
   }
 }
