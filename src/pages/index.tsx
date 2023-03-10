@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
 import styles from "@/styles/Home.module.css";
+import styles2 from "@/styles/test.module.less";
+import "../styles/test.less";
 
 export default function Home() {
   return (
@@ -13,6 +15,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h2>页面列表</h2>
+        <div className={`test ${styles2.test}`}>123</div>
         <ul>
           <li>
             <Link href="/isr/demo1">ISR 定时更新</Link>
