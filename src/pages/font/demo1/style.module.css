@@ -1,0 +1,60 @@
+@font-face {
+  font-family: "Alkatra";
+  src: local("Alkatra"),
+    url("./fonts/Alkatra/static/Alkatra-Regular.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Alkatra";
+  src: local("Alkatra"),
+    url("./fonts/Alkatra/static/Alkatra-Medium.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Alkatra";
+  src: local("Alkatra"),
+    url("./fonts/Alkatra/static/Alkatra-SemiBold.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Alkatra";
+  src: local("Alkatra"),
+    url("./fonts/Alkatra/static/Alkatra-Bold.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 700;
+}
+
+/* 有本地字体库使用本地字体库，没有则使用 next/font/google 中的字体库，具体代码在 app.tsx */
+/* @font-face {
+  font-family: "Alkatra";
+  font-display: swap;
+  src: local("Alkatra") format("truetype");
+} */
+
+.container {
+  font-family: "Alkatra";
+  font-display: optional;
+}
+
+.normal {
+  font-weight: 400;
+}
+
+.middle {
+  font-weight: 500;
+}
+
+.semiBold {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
