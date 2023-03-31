@@ -1,60 +1,74 @@
 @font-face {
-  font-family: "Alkatra";
-  src: local("Alkatra"),
-    url("./fonts/Alkatra/static/Alkatra-Regular.ttf") format("truetype");
+  font-family: "Alegreya";
+  /* src: local(sans-serif); */
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif */
+  src: local("Alegreya"),
+    url("./fonts/Alegreya/Alegreya-VariableFont_wght.ttf") format("truetype");
+  /* src: local("Alegreya"),
+      url("./fonts/Alegreya/Alegreya-VariableFont_wght.ttf") format("truetype"); */
   font-display: swap;
-  font-weight: 400;
+  font-variation-settings: "wght" 500, "wdth" 45 ;
+  /* font-weight: 600;
+  font-style: 600; */
+  /* size-adjust: 50%; */
+  /* font-stretch: 30%; */
+  /* font-weight: 400; */
+  /* line-gap-override: 120%; */
+  /* ascent-override: 190%; */
+  /* descent-override: 190%; */
+  /* font-variation-settings: "wght" 400; */
+  /* 通过指定要变化的特征的四个字母轴名称及其变化值，允许对 OpenType 或 TrueType 字体变化进行低级控制。 */
 }
-
-@font-face {
-  font-family: "Alkatra";
-  src: local("Alkatra"),
-    url("./fonts/Alkatra/static/Alkatra-Medium.ttf") format("truetype");
+/* @font-face {
+  font-family: "Alegreya";
+  src: local("Alegreya"),
+    url("./fonts/Alegreya/static/Alegreya-Medium.ttf") format("truetype");
   font-display: swap;
   font-weight: 500;
-}
+} */
 
+/* 
 @font-face {
-  font-family: "Alkatra";
-  src: local("Alkatra"),
-    url("./fonts/Alkatra/static/Alkatra-SemiBold.ttf") format("truetype");
+  font-family: "Alegreya";
+  src: local("Alegreya"),
+    url("./fonts/Alegreya/static/Alegreya-SemiBold.ttf") format("truetype");
   font-display: swap;
   font-weight: 600;
 }
 
 @font-face {
-  font-family: "Alkatra";
-  src: local("Alkatra"),
-    url("./fonts/Alkatra/static/Alkatra-Bold.ttf") format("truetype");
+  font-family: "Alegreya";
+  src: local("Alegreya"),
+    url("./fonts/Alegreya/static/Alegreya-Bold.ttf") format("truetype");
   font-display: swap;
   font-weight: 700;
-}
+} */
 
 /* 有本地字体库使用本地字体库，没有则使用 next/font/google 中的字体库，具体代码在 app.tsx */
 /* @font-face {
-  font-family: "Alkatra";
+  font-family: "Alegreya";
   font-display: swap;
-  src: local("Alkatra") format("truetype");
+  src: local("Alegreya") format("truetype");
 } */
 
-.container {
-  font-family: "Alkatra";
-  font-display: optional;
-}
-
 .normal {
+  font-family: "Alegreya", sans-serif;
   font-weight: 400;
+  font-variation-settings: 'wght' 600;
 }
 
 .middle {
+  font-family: "Alegreya", sans-serif;
   font-weight: 500;
 }
 
 .semiBold {
+  font-family: "Alegreya", sans-serif;
   font-weight: 600;
 }
 
 .bold {
+  font-family: "Alegreya", sans-serif;
   font-weight: 700;
 }
 
