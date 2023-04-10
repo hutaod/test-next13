@@ -1,13 +1,9 @@
 @font-face {
   font-family: "Alegreya";
-  /* src: local(sans-serif); */
-  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif */
   src: local("Alegreya"),
-    url("./fonts/Alegreya/Alegreya-VariableFont_wght.ttf") format("truetype");
-  /* src: local("Alegreya"),
-      url("./fonts/Alegreya/Alegreya-VariableFont_wght.ttf") format("truetype"); */
+    url("./fonts/Alegreya/static/Alegreya-Regular.ttf") format("truetype");
   font-display: swap;
-  font-variation-settings: "wght" 500, "wdth" 45 ;
+  /* font-weight: 500; */
   /* font-weight: 600;
   font-style: 600; */
   /* size-adjust: 50%; */
@@ -19,15 +15,15 @@
   /* font-variation-settings: "wght" 400; */
   /* 通过指定要变化的特征的四个字母轴名称及其变化值，允许对 OpenType 或 TrueType 字体变化进行低级控制。 */
 }
-/* @font-face {
+
+@font-face {
   font-family: "Alegreya";
   src: local("Alegreya"),
     url("./fonts/Alegreya/static/Alegreya-Medium.ttf") format("truetype");
   font-display: swap;
   font-weight: 500;
-} */
+}
 
-/* 
 @font-face {
   font-family: "Alegreya";
   src: local("Alegreya"),
@@ -42,7 +38,7 @@
     url("./fonts/Alegreya/static/Alegreya-Bold.ttf") format("truetype");
   font-display: swap;
   font-weight: 700;
-} */
+}
 
 /* 有本地字体库使用本地字体库，没有则使用 next/font/google 中的字体库，具体代码在 app.tsx */
 /* @font-face {
@@ -51,24 +47,64 @@
   src: local("Alegreya") format("truetype");
 } */
 
+
+@font-face {
+  font-family: "Alegreya-Var";
+  src: local("Alegreya-Var"),
+    url("./fonts/Alegreya/Alegreya-VariableFont_wght.ttf") format("truetype");
+  /* unicode-range: "U+180-24F"; */
+  /* font-display: swap; */
+}
+
+@font-face {
+  font-family: "Alegreya-Var";
+  src: local("Alegreya-Var"),
+    url("./fonts/Alegreya/Alegreya-Italic-VariableFont_wght.ttf") format("truetype");
+  font-style: italic;
+}
+
 .normal {
-  font-family: "Alegreya", sans-serif;
+  /* font-family: "Alegreya", sans-serif; */
   font-weight: 400;
   font-variation-settings: 'wght' 600;
 }
 
 .middle {
-  font-family: "Alegreya", sans-serif;
+  /* font-family: "Alegreya", sans-serif; */
   font-weight: 500;
 }
 
 .semiBold {
-  font-family: "Alegreya", sans-serif;
+  /* font-family: "Alegreya", sans-serif; */
   font-weight: 600;
 }
 
 .bold {
-  font-family: "Alegreya", sans-serif;
+  /* font-family: "Alegreya", sans-serif; */
   font-weight: 700;
+}
+
+
+.normal_var {
+  font-family: "Alegreya-Var", sans-serif;
+  font-weight: 400;
+  font-variation-settings: 'wght' 400;
+  font-stretch: 30%;
+}
+
+.middle_var {
+  font-family: "Alegreya-Var", sans-serif;
+  font-weight: 500;
+}
+
+.semiBold_var {
+  font-family: "Alegreya-Var", sans-serif;
+  font-weight: 600;
+}
+
+.bold_var {
+  font-family: "Alegreya-Var", sans-serif;
+  font-weight: 700;
+  font-style: italic;
 }
 
