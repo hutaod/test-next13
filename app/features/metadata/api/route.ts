@@ -11,7 +11,7 @@ export async function POST() {
   const data = await new Promise((resolve) => {
     setTimeout(() => {
       resolve({ title: "async title" })
-    }, 100)
+    }, 2000)
   });
 
   return NextResponse.json({ data })

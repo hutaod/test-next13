@@ -1,6 +1,8 @@
 // export const metadata = {
 //   title: 'test metadata',
 // };
+import Link from "next/link";
+import "../global.css";
 
 import { cache } from "react";
 
@@ -30,6 +32,7 @@ async function TestMetadata() {
     <div>
       <h3>Test Metadata</h3>
       <div>{data?.title}</div>
+      <Link href={"/features/data-fetch"}>data fetch page</Link>
     </div>
   );
 }
