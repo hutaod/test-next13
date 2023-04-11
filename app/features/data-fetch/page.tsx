@@ -7,7 +7,7 @@ import "../global.css";
 import { cache } from "react";
 // import LoadingTest from "./loading-test"
 
-export const getPageInfo = cache(async function getPageInfo() {
+const getPageInfo = cache(async function getPageInfo() {
   const { data } = await fetch(`http://localhost:3000/features/metadata/api`, { method: "POST" }).then((res) =>
     res.json(),
   );

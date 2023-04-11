@@ -5,8 +5,9 @@ import Link from "next/link";
 import "../global.css";
 
 import { cache } from "react";
+import { log } from '../data-fetch/utils';
 
-export const getPageInfo = cache(async function getPageInfo() {
+const getPageInfo = cache(async function getPageInfo() {
   const { data } = await fetch(`http://localhost:3000/features/metadata/api`, { method: "POST" }).then((res) =>
     res.json(),
   );
@@ -19,7 +20,7 @@ export async function generateMetadata({
   params: { slug: string };
 }) {
   const data = await getPageInfo();
-  console.log("generateMetadata", data)
+  log("generateMetadata", data)
   return {
     title: data.title,
   };
@@ -27,7 +28,7 @@ export async function generateMetadata({
 
 async function TestMetadata() {
   const data = await getPageInfo();
-  console.log(11112, data)
+  log(data)
   return (
     <div>
       <h3>Test Metadata</h3>
