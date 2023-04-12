@@ -1,6 +1,6 @@
-import React from 'react'
+"use client";
 
-const About = () => {
+const About = async () => {
   return (
     <div>About</div>
   )

@@ -1,10 +1,10 @@
-"use client";
+// "use client";
 // export const metadata = {
 //   title: 'test metadata',
 // };
 import "../global.css";
 
-import { cache } from "react";
+import { cache } from "react"; // cache 不能在客户端使用，否则打包会出现异常
 // import LoadingTest from "./loading-test"
 
 const getPageInfo = cache(async function getPageInfo() {
