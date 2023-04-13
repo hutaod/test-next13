@@ -8,23 +8,29 @@ import { cache } from "react"; // cache 不能在客户端使用，否则打包�
 // import LoadingTest from "./loading-test"
 
 const getPageInfo = cache(async function getPageInfo() {
-  const { data } = await fetch(`http://localhost:3000/features/metadata/api`, { method: "POST" }).then((res) =>
-    res.json(),
-  );
-  return data;
+  try {
+    const { data } = await fetch(`http://localhost:3000/features/metadata/api`, { method: "POST" }).then((res) =>
+      res.json(),
+    );
+    console.log("success:", data)
+    return data;
+  } catch (error) {
+    console.log("error:", error)
+    return { title: "" }
+  }
 })
 
-// export async function generateMetadata({
-//   params,
-// }: {
-//   params: { slug: string };
-// }) {
-//   const data = await getPageInfo();
-//   console.log("generateMetadata", data)
-//   return {
-//     title: data.title,
-//   };
-// }
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const data = await getPageInfo();
+  console.log("generateMetadata", data)
+  return {
+    title: data.title,
+  };
+}
 
 async function TestDataFetch() {
   const data = await getPageInfo();

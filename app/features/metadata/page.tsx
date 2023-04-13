@@ -8,11 +8,18 @@ import { cache } from "react";
 import { log } from '../data-fetch/utils';
 
 const getPageInfo = cache(async function getPageInfo() {
-  const { data } = await fetch(`http://localhost:3000/features/metadata/api`, { method: "POST" }).then((res) =>
-    res.json(),
-  );
-  return data;
+  try {
+    const { data } = await fetch(`http://localhost:3000/features/metadata/api`, { method: "POST" }).then((res) =>
+      res.json(),
+    );
+    console.log("success:", data)
+    return data;
+  } catch (error) {
+    console.log("error:", error)
+    return { title: "" }
+  }
 })
+
 
 export async function generateMetadata({
   params,
