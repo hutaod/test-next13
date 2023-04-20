@@ -8,9 +8,11 @@ const jsonSchema = {
     "click": "actions#link",
   },
   // 行为
-  actions: {},
-  // 依赖？
-  dependencies: [],
+  actions: {
+    "linkTo": {
+      eventType: "click",
+    },
+  },
 }
 
 const Page = () => {
